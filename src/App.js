@@ -9,8 +9,10 @@ function App() {
         <Weather city="Amsterdam" />
       </header>
       <footer>
-        <a href="https://github.com/LiekeM">Open-source code</a> by Lieke van
-        der Made
+        <a href="https://github.com/LiekeM/weather-react-test2">
+          Open-source code
+        </a>
+        by Lieke van der Made
       </footer>
     </div>
   );
