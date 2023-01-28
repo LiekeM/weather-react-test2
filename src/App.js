@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Weather from "./Weather";
 
@@ -9,10 +8,10 @@ function App() {
         <h1>Weather App</h1>
         <Weather city="Amsterdam" />
       </header>
-      <p>
+      <footer>
         <a href="https://github.com/LiekeM">Open-source code</a> by Lieke van
         der Made
-      </p>
+      </footer>
     </div>
   );
 }
