@@ -11,8 +11,8 @@ function App() {
       <footer>
         <a href="https://github.com/LiekeM/weather-react-test2">
           Open-source code
-        </a>
-        by Lieke van der Made
+        </a>{" "}
+        by Lieke van der Made lallalalal
       </footer>
     </div>
   );
