@@ -10,10 +10,10 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: greenyellow;
 }
 
-h1 {
+.weather-header {
   font-family: "Courier New", Courier, monospace;
   font-size: 100px;
 }

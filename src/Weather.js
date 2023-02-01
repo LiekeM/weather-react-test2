@@ -40,7 +40,7 @@ export default function Weather() {
 
   if (result) {
     return (
-      <div>
+      <div className="Weather">
         {form}
         <h3>
           <ul>
