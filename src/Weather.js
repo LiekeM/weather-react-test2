@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "./weather.css";
+import FormattedDate from "./FormattedDate";
+
 export default function Weather() {
   const [city, setCity] = useState("");
   const [result, setResult] = useState(false);
@@ -8,9 +11,9 @@ export default function Weather() {
 
   function submitAction(event) {
     event.preventDefault();
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b29c908b2b975675d8f2a8a569aaa024&units=metric
+    let apiKey = "b29c908b2b975675d8f2a8a569aaa024";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric
     `;
-
     axios.get(url).then(displayWeather);
   }
 
@@ -19,13 +22,13 @@ export default function Weather() {
   }
 
   function displayWeather(response) {
-    console.log(response);
-    // check if there is an error  if there is ERROR then alert "Please enter a valid city"
-
+    console.log(response.data);
     setResult(true);
     setWeather({
       name: response.data.name,
       temperature: Math.round(response.data.main.temp),
+      description: response.data.weather[0].description,
+      date: new Date((response.data.dt - response.data.timezone) * 1000),
       wind: response.data.wind.speed,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
@@ -40,13 +43,18 @@ export default function Weather() {
 
   if (result) {
     return (
-      <div className="Weather">
+      <div className="weather">
         {form}
         <h3>
           <ul>
+            <li>
+              <FormattedDate date={weather.date} />
+            </li>
             <li>Current weather in {weather.name}</li>
             <li>Temperature: {weather.temperature} °C</li>
+            <li>{weather.description}</li>
             <li>Windspeed: {weather.wind} km/h</li>
+
             <li>
               <img src={weather.icon} alt="" />
             </li>
