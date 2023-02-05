@@ -4,6 +4,7 @@ import axios from "axios";
 import "./weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import TemperatureConversion from "./TemperatureConversion";
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -51,7 +52,11 @@ export default function Weather() {
               <FormattedDate date={weather.date} />
             </li>
             <li>Current weather in {weather.name}</li>
-            <li>Temperature: {weather.temperature} °C</li>
+            <li>
+              {" "}
+              <TemperatureConversion celcius={weather.temperature} />{" "}
+            </li>
+
             <li className="text-capitalize">{weather.description}</li>
             <li>Windspeed: {weather.wind} km/h</li>
 
