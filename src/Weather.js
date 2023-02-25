@@ -6,11 +6,10 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import TemperatureConversion from "./TemperatureConversion";
 
-export default function Weather(props) {
+export default function Weather() {
   const [city, setCity] = useState("");
   const [result, setResult] = useState(false);
   const [weather, setWeather] = useState({});
-  console.log(props);
 
   function displayWeather(response) {
     console.log(response.data);
