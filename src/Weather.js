@@ -14,14 +14,14 @@ export default function Weather() {
   function displayWeather(response) {
     console.log(response.data);
     setResult(true);
+
     setWeather({
-      name: response.data.name,
-      temperature: Math.round(response.data.main.temp),
-      description: response.data.weather[0].description,
-      date: new Date((response.data.dt - response.data.timezone) * 1000),
-      wind: response.data.wind.speed,
-      icon: response.data.weather[0].icon,
-      coordinates: response.data.coord,
+      name: response.data.city,
+      temperature: Math.round(response.data.daily[0].temperature.day),
+      description: response.data.daily[0].condition.description,
+      date: new Date(response.data.daily[0].time * 1000),
+      wind: response.data.daily[0].wind.speed,
+      icon: response.data.daily[0].condition.icon,
     });
   }
 
@@ -35,8 +35,9 @@ export default function Weather() {
   }
 
   function search() {
-    const apiKey = "b29c908b2b975675d8f2a8a569aaa024";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
+
+    let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather);
   }
 
@@ -68,9 +69,6 @@ export default function Weather() {
             <li>
               <WeatherIcon code={weather.icon} />
             </li>
-            {/* <li>
-              <WeatherForecast coordinates={weather.coordinates} />
-            </li> */}
           </ul>
         </h3>
       </div>
