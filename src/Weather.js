@@ -6,21 +6,11 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import TemperatureConversion from "./TemperatureConversion";
 
-export default function Weather() {
+export default function Weather(props) {
   const [city, setCity] = useState("");
   const [result, setResult] = useState(false);
   const [weather, setWeather] = useState({});
-
-  function submitAction(event) {
-    event.preventDefault();
-    const apiKey = "b29c908b2b975675d8f2a8a569aaa024";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(url).then(displayWeather);
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
+  console.log(props);
 
   function displayWeather(response) {
     console.log(response.data);
@@ -32,7 +22,23 @@ export default function Weather() {
       date: new Date((response.data.dt - response.data.timezone) * 1000),
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
+      coordinates: response.data.coord,
     });
+  }
+
+  function submitAction(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "b29c908b2b975675d8f2a8a569aaa024";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(displayWeather);
   }
 
   let form = (
@@ -63,6 +69,9 @@ export default function Weather() {
             <li>
               <WeatherIcon code={weather.icon} />
             </li>
+            {/* <li>
+              <WeatherForecast coordinates={weather.coordinates} />
+            </li> */}
           </ul>
         </h3>
       </div>
