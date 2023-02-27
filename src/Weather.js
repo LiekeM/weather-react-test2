@@ -49,8 +49,35 @@ export default function Weather() {
         {form}
         <h3>
           <WeatherInfo data={weather} day={0} />
-          <WeatherInfo data={weather} day={1} />
         </h3>
+        <div className="container">
+          <div className="row">
+            {/* {forecast.map(function (dailyForecast, index) {
+              if (index < 5) {
+                return (
+                  <div className="col" key={index}>
+                    <WeatherInfo data={dailyForecast} />
+                  </div>
+                );
+              }
+            })} */}
+            <div className="col">
+              <WeatherForecast data={weather} day={1} />
+            </div>
+            <div className="col">
+              <WeatherForecast data={weather} day={2} />
+            </div>
+            <div className="col">
+              <WeatherForecast data={weather} day={3} />
+            </div>
+            <div className="col">
+              <WeatherForecast data={weather} day={4} />
+            </div>
+            <div className="col">
+              <WeatherForecast data={weather} day={5} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
