@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Martian+Mono&family=Montserrat:wght@400;700&family=Nunito:wght@600&family=Paytone+One&family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&family=Tilt+Neon&display=swap");
+
 .App {
   text-align: center;
 }
@@ -10,7 +12,37 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: monospace;
   color: greenyellow;
 }
+.weather-header {
+  margin-bottom: 30px;
+  font-size: 80px;
+  font-family: "Tilt Neon", cursive;
+}
 
+.TempFont {
+  font-size: 90px;
+}
 
+.Emoji {
+  font-size: 90px;
+}
+
+.minTemp {
+  color: grey;
+}
+
+.Weather-block h1 {
+  font-size: 58px;
+  font-family: "Nunito", sans-serif;
+}
+
+footer {
+  font-family: "Nunito", sans-serif;
+  margin: 10px;
+}
+
+/* .forecastEmojiContainer {
+  color: blueviolet;
+} */
