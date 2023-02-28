@@ -2,6 +2,8 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import TemperatureConversion from "./TemperatureConversion";
 import WeatherIcon from "./WeatherIcon";
+import WeatherEmoji from "./WeatherEmoji";
+import TemperatureEmoji from "./TemperatureEmoji";
 
 export default function WeatherInfo(props) {
   let name = props.data.city;
@@ -9,18 +11,25 @@ export default function WeatherInfo(props) {
   let minimumTemp = Math.round(props.data.daily[props.day].temperature.minimum);
   let maximumTemp = Math.round(props.data.daily[props.day].temperature.maximum);
   let icon = props.data.daily[props.day].condition.icon;
-  let date = new Date(props.data.daily[props.day].time * 1000);
+
+  function day() {
+    let date = new Date(props.data.daily[props.day].time * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    return days[day];
+  }
 
   return (
     <div className="WeatherInfo">
-      <div className="row mt-3">
-        <div className="col-6">
-          <FormattedDate date={date} />
-
+      <div className="row">
+        <div className="col">
+          <div className="ForecastDay">{day()}</div>
           <div>
             {maximumTemp} °C | {minimumTemp} °C
           </div>
-          <WeatherIcon code={icon} size={52} />
+          <TemperatureEmoji temp={temperature} />
+          + <WeatherEmoji code={icon} />
         </div>
       </div>
     </div>
