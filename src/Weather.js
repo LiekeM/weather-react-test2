@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import "./weather.css";
@@ -7,6 +7,7 @@ import WeatherIcon from "./WeatherIcon";
 import TemperatureConversion from "./TemperatureConversion";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -16,7 +17,6 @@ export default function Weather() {
   function displayWeather(response) {
     console.log(response.data);
     setResult(true);
-
     setWeather(response.data);
   }
 
@@ -31,10 +31,19 @@ export default function Weather() {
 
   function search() {
     const apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
-
     let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather);
   }
+
+  useEffect(() => {
+    const apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
+    axios.get("https://ipapi.co/city/").then((response) => {
+      const cityip = response.data;
+      const url = `https://api.shecodes.io/weather/v1/forecast?query=${cityip}&key=${apiKey}&units=metric`;
+      axios.get(url).then(displayWeather);
+    });
+  }, []);
+  // useEffect runs only once when loading/reloading the page, because it is an empty array/object []
 
   let form = (
     <form onSubmit={submitAction}>
@@ -50,13 +59,13 @@ export default function Weather() {
         <h3>
           <WeatherInfo data={weather} day={0} />
         </h3>
-        <div className="container">
+        <div className="forecastEmojiContainer">
           <div className="row">
-            {/* {forecast.map(function (dailyForecast, index) {
+            {/* {weather.daily.map(function (dailyForecast, index) {
               if (index < 5) {
                 return (
                   <div className="col" key={index}>
-                    <WeatherInfo data={dailyForecast} />
+                    <WeatherForecast data={dailyForecast} />
                   </div>
                 );
               }
