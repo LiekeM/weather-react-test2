@@ -13,7 +13,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   font-family: monospace;
-  color: greenyellow;
+  color: #98ff98;
+  padding-top: 25px;
 }
 .weather-header {
   margin-bottom: 30px;
@@ -22,7 +23,7 @@
 }
 
 .TempFont {
-  font-size: 90px;
+  font-size: 70px;
 }
 
 .Emoji {
@@ -36,11 +37,18 @@
 .Weather-block h1 {
   font-size: 58px;
   font-family: "Nunito", sans-serif;
+  margin-bottom: 20px;
+  padding: 0px 50px 0px 50px;
 }
 
 footer {
   font-family: "Nunito", sans-serif;
-  margin: 10px;
+  padding: 10px;
+  background-color: #98ff98;
+  color: #282c34;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* .forecastEmojiContainer {

@@ -4,18 +4,66 @@
   border-radius: 25px;
   background-color: whitesmoke;
   color: darkslategrey;
-
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+  box-shadow: rgba(50, 50, 93, 0.15) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .forecastEmojiContainer {
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 30px;
   border-radius: 25px;
   background-color: whitesmoke;
   color: darkslategrey;
+
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.searchbar {
+  width: 100%;
+  max-width: 300px;
+  display: inline-flex;
+}
+
+.searchbarInput {
+  flex-grow: 1;
+  padding: 10px;
+  outline: none;
+  border: 2px solid #98ff98;
+  border-radius: 9px 0 0 9px;
+  background: whitesmoke;
+  box-shadow: rgba(50, 50, 93, 0.1) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.1) 0px 18px 36px -18px inset;
+
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+.searchbarInput:focus {
+  background-color: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+.searchbarInput::placeholder {
+  color: #98ff98;
+}
+
+.searchbarButton {
+  width: 40px;
+  background: #98ff98;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 30px;
+  padding-left: 30px;
+  border-radius: 0 9px 9px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.searchbarButton:active {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
