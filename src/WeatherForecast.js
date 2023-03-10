@@ -26,10 +26,9 @@ export default function WeatherInfo(props) {
         <div className="col">
           <div className="ForecastDay">{day()}</div>
           <div>
-            {maximumTemp} °C | {minimumTemp} °C
+            {maximumTemp}° <span className="minTemp"> {minimumTemp}° </span>
           </div>
-          <TemperatureEmoji temp={temperature} />
-          + <WeatherEmoji code={icon} />
+          <TemperatureEmoji temp={temperature} /> + <WeatherEmoji code={icon} />
         </div>
       </div>
     </div>

@@ -1,19 +1,25 @@
 import "./App.css";
 import "./weather.css";
 import Weather from "./Weather";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <h1 className="weather-header">Weather App</h1>
-        <Weather />
+        <h1 className="weather-header"> What should I wear today </h1>
+        <span className="Weather-block">
+          <Weather />{" "}
+        </span>
       </div>
       <footer>
+        {" "}
+        This project was coded by{" "}
+        <a href="https://www.liekevandermade.nl/">Lieke van der Made</a> and is{" "}
         <a href="https://github.com/LiekeM/weather-react-test2">
-          Open-source code
+          open-sourced on GitHub
         </a>{" "}
-        by Lieke van der Made
+        and <a href=""> hosted on Netlify</a>
       </footer>
     </div>
   );

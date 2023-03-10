@@ -20,23 +20,27 @@ export default function WeatherInfo(props) {
       <h1>
         in {name}, {country}
       </h1>
+      <br />
       <div className="Emoji">
         <TemperatureEmoji temp={temperature} /> + <WeatherEmoji code={icon} />
       </div>
 
-      <div className="row">
-        <div className="col-4">
-          <TemperatureConversion celcius={temperature} />
-        </div>
-        <div className="col-4">
-          {" "}
-          <FormattedDate date={date} />
-        </div>
+      <br />
+      <div className="temperatureContainer">
+        <div className="row">
+          <div className="col-4">
+            <TemperatureConversion celcius={temperature} />
+          </div>
+          <div className="col-4">
+            <br />
+            <FormattedDate date={date} />
+          </div>
 
-        <div className="col-4">
-          <div className="text-capitalize">{description}</div>
-          <div>Humidity: {humidity} </div>
-          <div>Wind: {wind} km/h</div>
+          <div className="col-4 ">
+            <div className="text-capitalize">{description}</div>
+            <div>Humidity: {humidity} %</div>
+            <div>Wind: {wind} km/h</div>
+          </div>
         </div>
       </div>
     </div>
