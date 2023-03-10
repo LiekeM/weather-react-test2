@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import { BallTriangle } from "react-loading-icons";
+
 import "./weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
@@ -47,8 +49,18 @@ export default function Weather() {
 
   let form = (
     <form onSubmit={submitAction}>
-      <input type="search" placeholder="enter city" onChange={updateCity} />
-      <input type="submit" value="Search" />
+      <div className="searchbar">
+        <input
+          className="searchbarInput"
+          type="search"
+          placeholder="enter city"
+          onChange={updateCity}
+        />
+        <button className="searchbarButton" type="submit">
+          {" "}
+          🔍{" "}
+        </button>
+      </div>
     </form>
   );
 
@@ -56,9 +68,11 @@ export default function Weather() {
     return (
       <div className="weather">
         {form}
-        <h3>
-          <WeatherInfo data={weather} day={0} />
-        </h3>
+        <div className="weatherInfoContainer">
+          <h5>
+            <WeatherInfo data={weather} day={0} />
+          </h5>
+        </div>
         <div className="forecastEmojiContainer">
           <div className="row">
             {/* {weather.daily.map(function (dailyForecast, index) {
@@ -92,8 +106,11 @@ export default function Weather() {
   } else {
     return (
       <div>
-        {form}
-        <h5>Please enter a valid city</h5>
+        <br />
+        <BallTriangle stroke="#98ff98" />
+        <br />
+        <br />
+        <h2>☀️ ❄️ loading.. 🌈 🌧️</h2>
       </div>
     );
   }
