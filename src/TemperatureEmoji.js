@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function getEmojiFromTemp(props) {
   if (props.temp <= 0) {
     return "🧤";
