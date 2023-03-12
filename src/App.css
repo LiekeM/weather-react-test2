@@ -5,7 +5,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,8 +12,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   font-family: monospace;
-  color: #98ff98;
-  padding-top: 25px;
+  color: #a0a1ec;
+  padding-top: 30px;
+  /* background: rgb(27, 16, 69);
+  background: rgb(40, 44, 52);
+  background: rgb(51, 52, 97);
+  background: rgb(7, 7, 38);
+  background: rgb(38, 38, 41); */
+  background-image: url("pexels-rick-bossenbroek-14563093-copy.png");
 }
 .weather-header {
   margin-bottom: 30px;
@@ -44,7 +49,7 @@
 footer {
   font-family: "Nunito", sans-serif;
   padding: 10px;
-  background-color: #98ff98;
+  background-color: #d5d5e6;
   color: #282c34;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
