@@ -1,12 +1,8 @@
 import React from "react";
-import FormattedDate from "./FormattedDate";
-import TemperatureConversion from "./TemperatureConversion";
-import WeatherIcon from "./WeatherIcon";
 import WeatherEmoji from "./WeatherEmoji";
 import TemperatureEmoji from "./TemperatureEmoji";
 
 export default function WeatherInfo(props) {
-  let name = props.data.city;
   let temperature = Math.round(props.data.daily[props.day].temperature.day);
   let minimumTemp = Math.round(props.data.daily[props.day].temperature.minimum);
   let maximumTemp = Math.round(props.data.daily[props.day].temperature.maximum);
