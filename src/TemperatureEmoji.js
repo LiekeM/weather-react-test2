@@ -11,13 +11,16 @@ export default function getEmojiFromTemp(props) {
   if (props.temp > 14 && props.temp <= 20) {
     return "👖";
   }
-  if (props.temp > 20 && props.temp <= 24) {
+  if (props.temp > 20 && props.temp <= 23) {
     return "👕";
   }
-  if (props.temp > 24 && props.temp <= 26) {
+  if (props.temp > 23 && props.temp <= 25) {
+    return "👚";
+  }
+  if (props.temp > 25 && props.temp <= 27) {
     return "🎽";
   }
-  if (props.temp > 26 && props.temp <= 32) {
+  if (props.temp > 27 && props.temp <= 32) {
     return "🩳";
   }
   if (props.temp > 32 && props.temp <= 35) {
