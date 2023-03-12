@@ -57,7 +57,10 @@ export default function Weather() {
     axios.get("https://ipapi.co/city/").then((response) => {
       const cityip = response.data;
       const url = `https://api.shecodes.io/weather/v1/forecast?query=${cityip}&key=${apiKey}&units=metric`;
-      axios.get(url).then(displayWeather);
+      axios.get(url).then((response) => {
+        setResult(true);
+        setWeather(response.data);
+      });
     });
   }, []);
   // useEffect runs only once when loading/reloading the page, because it is an empty array/object []
