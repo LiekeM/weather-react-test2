@@ -15,11 +15,18 @@ function App() {
       <footer>
         {" "}
         This project was coded by{" "}
-        <a href="https://www.liekevandermade.nl/">Lieke van der Made</a> and is{" "}
-        <a href="https://github.com/LiekeM/weather-react-test2">
+        <a href="https://www.liekevandermade.nl/" target="_blank">
+          Lieke van der Made
+        </a>{" "}
+        and is{" "}
+        <a href="https://github.com/LiekeM/weather-react-test2" target="_blank">
           open-sourced on GitHub
         </a>{" "}
-        and <a href=""> hosted on Netlify</a>
+        and{" "}
+        <a href="https://app.netlify.com/teams/liekem/sites" target="_blank">
+          {" "}
+          hosted on Netlify
+        </a>
       </footer>
     </div>
   );
