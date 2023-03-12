@@ -4,12 +4,8 @@ import axios from "axios";
 import { BallTriangle } from "react-loading-icons";
 
 import "./weather.css";
-import FormattedDate from "./FormattedDate";
-import WeatherIcon from "./WeatherIcon";
-import TemperatureConversion from "./TemperatureConversion";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -18,7 +14,6 @@ export default function Weather() {
 
   function displayWeather(response) {
     if (response.data.status === "not_found") {
-      // TODO: notify the user that this is not a valid city
       alert(`
       ${city} is not a valid city 🥶 
     
