@@ -17,9 +17,16 @@ export default function Weather() {
   const [weather, setWeather] = useState([]);
 
   function displayWeather(response) {
-    console.log(response.data);
-    setResult(true);
-    setWeather(response.data);
+    if (response.data.status === "not_found") {
+      // TODO: notify the user that this is not a valid city
+      alert(`
+      ${city} is not a valid city 🥶 
+    
+      Please try again!`);
+    } else {
+      setResult(true);
+      setWeather(response.data);
+    }
   }
 
   function submitAction(event) {
@@ -34,7 +41,20 @@ export default function Weather() {
   function search() {
     const apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
     let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(url).then(displayWeather);
+    axios
+      .get(url, {
+        validateStatus: function (status) {
+          return status <= 300; // Resolve only if the status code is less than 500
+        },
+      })
+      .then(displayWeather)
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
   }
 
   useEffect(() => {
@@ -107,7 +127,7 @@ export default function Weather() {
     return (
       <div>
         <br />
-        <BallTriangle stroke="#98ff98" />
+        <BallTriangle stroke="#a0a1ec" />
         <br />
         <br />
         <h2>☀️ ❄️ loading.. 🌈 🌧️</h2>
