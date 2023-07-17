@@ -1,8 +1,8 @@
 export default function getEmojiFromTemp(props) {
-  if (props.temp <= 0) {
+  if (props.temp <= 2) {
     return "🧤";
   }
-  if (props.temp > 0 && props.temp <= 8) {
+  if (props.temp > 2 && props.temp <= 8) {
     return "🧣";
   }
   if (props.temp > 8 && props.temp <= 14) {
@@ -24,7 +24,7 @@ export default function getEmojiFromTemp(props) {
     return "🩳";
   }
   if (props.temp > 32 && props.temp <= 35) {
-    return "⛱️";
+    return "🩴";
   } else {
     return "👙";
   }
