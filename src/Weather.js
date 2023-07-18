@@ -34,7 +34,7 @@ export default function Weather() {
   }
 
   function search() {
-    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
     let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
     axios
       .get(url, {
@@ -53,7 +53,7 @@ export default function Weather() {
   }
 
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiKey = "ca3bao1ae6a5d30ff038901b133ffc4t";
     axios.get("https://ipapi.co/city/").then((response) => {
       const cityip = response.data;
       const url = `https://api.shecodes.io/weather/v1/forecast?query=${cityip}&key=${apiKey}&units=metric`;
